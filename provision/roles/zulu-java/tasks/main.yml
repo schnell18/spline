@@ -1,0 +1,23 @@
+---
+# tasks file for zulu java
+
+- name: Add zulu apt signing key
+  ansible.builtin.apt_key:
+    id: "0xB1998361219BD9C9"
+    keyserver: keyserver.ubuntu.com
+    state: present
+
+- name: Add zulu openjdk apt repository
+  apt_repository:
+    repo: deb [ arch=amd64,arm64 ] https://repos.azul.com/zulu/deb/ stable main
+    state: present
+    filename: zulu-openjdk
+
+- name: Install zulu openjdk and its dependecies
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+    - zulu8-jdk

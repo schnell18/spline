@@ -1,0 +1,6 @@
+[submodule "provision/roles/gitea"]
+	path = provision/roles/gitea
+	url = https://github.com/schnell18/ansible-role-gitea.git
+[submodule "provision/roles/nexus"]
+	path = provision/roles/nexus
+	url = https://github.com/schnell18/nexus3-oss.git

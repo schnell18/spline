@@ -1,0 +1,15 @@
+---
+# tasks file for nginx
+
+- name: Install nginx and its dependecies
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+    - nginx
+  notify:
+    - Restart nginx
+
+- meta: flush_handlers
